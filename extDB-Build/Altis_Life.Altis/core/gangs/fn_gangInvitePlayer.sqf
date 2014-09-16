@@ -12,7 +12,7 @@ if((lbCurSel 2632) == -1) exitWith {hint localize "STR_GNOTF_SelectPerson"};
 _unit = call compile format["%1",getSelData(2632)];
 if(isNull _unit) exitWith {}; //Bad unit?
 if(_unit == player) exitWith {hint localize "STR_GNOTF_InviteSelf"};
-if(!isNil {(group _unit) getVariable "gang_name"}) exitWith {hint "This player is already in a gang"}; //Added
+if(!isNil ((group _unit) getVariable "gang_name")) exitWith {hint "This player is already in a gang"}; //Added
 
 if(count(grpPlayer getVariable ["gang_members",8]) == (grpPlayer getVariable ["gang_maxMembers",8])) exitWith {hint localize "STR_GNOTF_MaxSlot"};
 
